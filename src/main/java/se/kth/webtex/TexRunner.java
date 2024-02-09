@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -83,7 +84,7 @@ public class TexRunner {
     }	
 
     private String temporaryFile() throws IOException {
-        File tmpFile = File.createTempFile("webtex", "", dir);
+        File tmpFile = Files.createTempFile(dir.toPath(), "webtex", "").toFile();
         return tmpFile.getAbsolutePath();
     }
 
